@@ -37,7 +37,7 @@ export default function GuestBook() {
     </div>
   );
 
-  const displayMessage = user ? `Thanks for the mssage ${user}` : 'Please send me a message';
+  const displayMessage = user ? `Thanks for the message ${user}` : 'Please send me a message';
   return (
     <div>
       <h1>{displayMessage}</h1>
