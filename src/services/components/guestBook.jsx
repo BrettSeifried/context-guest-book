@@ -10,20 +10,44 @@ export default function GuestBook() {
   const { user, setUser } = useUser();
   const { message, setMessage } = useEntries();
   //function updateGuestList, not guestEntry, set username, setentries spread and name/message
-
+  function updateMessageList() {
+    if (!messageEntry) return;
+    setUser(name);
+    setMessage([...message, { name, messageEntry }]);
+    setMessageEntry('');
+  }
   //handle submit prevent default updateGuestslists and update guests list
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateMessageList();
+  };
+
+  // title
+  //input name
+  // value of name
+  // on change setName
+
+  //const displayMessage
+
+  const userNameInput = (
+    <div>
+      <div>
+        <label>Name:</label>
+      </div>
+      <div>
+        <input
+          type="text"
+          value={name}
+          placeholder="Your Name"
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+      </div>
+    </div>
+  );
 
   //guesNameInput
   return (
     <>
-      <label>Name:</label>
-      <input type="text" value={name} onChange></input>
-      {/* // title
-    //input name
-    // value of name
-    // on change setName
-
-    //const displayMessage */}
       {/* <input type="text" value={message} OnChange></input> */}
       {/* // if user, display {user} : 'text to sign. // form onSubmit */}
       <form>
