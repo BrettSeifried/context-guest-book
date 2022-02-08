@@ -1,13 +1,13 @@
 import React from 'react';
-import { EntryProvider } from '../../context/EntryContext';
+import { UserProvider } from '../../context/UserContext';
 import GuestBook from '../components/guestBook';
 import MessageList from '../components/guestList';
 
 export default function Home() {
   return (
-    <EntryProvider>
+    <UserProvider>
       <GuestBook />
       <MessageList />
-    </EntryProvider>
+    </UserProvider>
   );
 }

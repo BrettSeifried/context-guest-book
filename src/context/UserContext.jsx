@@ -1,16 +1,11 @@
-//import createContext, useContext, useMemo, useState
+import { createContext, useContext, useState } from 'react';
 
-import { createContext, useContext, useMemo, useState } from 'react';
-
-//export UserContext = createContext
 export const UserContext = createContext();
 
-//const useProvider
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState('');
 
-  // useMemo?
-  const value = useMemo(() => ({ user, setUser }), [user]);
+  const value = { user, setUser };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
@@ -24,8 +19,4 @@ const useUser = () => {
   return context;
 };
 
-//const useUser
-// retrun context
-
-// export
 export { UserProvider, useUser };
