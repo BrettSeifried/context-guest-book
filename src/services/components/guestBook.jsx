@@ -13,7 +13,7 @@ export default function GuestBook() {
   function updateMessageList() {
     if (!messageEntry) return;
     setUser(name);
-    setMessage([...message, { name, messageEntry }]);
+    setMessage([...message, { name, message: messageEntry }]);
     setMessageEntry('');
   }
   //handle submit prevent default updateGuestslists and update guests list
@@ -46,23 +46,43 @@ export default function GuestBook() {
   );
 
   //guesNameInput
+  const displayMessage = user ? `Thanks for the mssage ${user}` : 'Please send me a message';
   return (
     <>
-      {/* <input type="text" value={message} OnChange></input> */}
-      {/* // if user, display {user} : 'text to sign. // form onSubmit */}
-      <form>
-        <label> Write me a note</label>
+      <h1>{displayMessage}</h1>
+      <form onSubmit={handleSubmit}>
+        {user ? null : userNameInput}
+        <div>
+          <label> Write me a note:</label>
+          {/* // <textarea> for value-guestEntry */}
+          <textarea
+            type="text"
+            value={messageEntry}
+            placeholder="Your Message!"
+            onChange={(e) => setMessageEntry(e.target.value)}
+          />
+        </div>
 
-        {/* // <textarea> for value-guestEntry */}
-        <textarea />
+        <div>
+          {/* // onChange setGuestEntry */}
+          <button type="submit">Send It!</button>
+          {user && (
+            <button
+              type="button"
+              onClick={() => {
+                setUser('');
+                setName('');
+              }}
+            >
+              Are you {user}?
+            </button>
+          )}
 
-        {/* // onChange setGuestEntry */}
-        <button>Send It!</button>
-
-        {/* // {user && button for signout}
+          {/* // {user && button for signout}
       // Onclick setUser('') setName('') */}
-        {/* //Sign button, type=submit */}
-        <button>Change Sender</button>
+          {/* //Sign button, type=submit */}
+          <button>Change Sender</button>
+        </div>
       </form>
     </>
 

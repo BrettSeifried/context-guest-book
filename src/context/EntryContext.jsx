@@ -6,9 +6,9 @@ import { createContext, useContext, useState } from 'react';
 const EntryContext = createContext();
 
 const EntryProvider = ({ children }) => {
-  const [entry, setEntry] = useState([]);
+  const [message, setMessage] = useState([]);
 
-  return <EntryContext.Provider value={{ entry, setEntry }}>{children}</EntryContext.Provider>;
+  return <EntryContext.Provider value={{ message, setMessage }}>{children}</EntryContext.Provider>;
 };
 
 //const useEntries
