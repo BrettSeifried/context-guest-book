@@ -1,25 +1,47 @@
 //imports
+import React, { useState } from 'react';
+import { useEntries } from '../../context/EntryContext';
+import { useUser } from '../../context/UserContext';
 
-// consts of name, guestEntry. context: const user, entries
+export default function GuestBook() {
+  // consts of name, guestEntry. context: const user, entries
+  const [name, setName] = useState('');
+  const [messageEntry, setMessageEntry] = useState('');
+  const { user, setUser } = useUser();
+  const { message, setMessage } = useEntries();
+  //function updateGuestList, not guestEntry, set username, setentries spread and name/message
 
-//function updateGuestList, not guestEntry, set username, setentries spread and name/message
+  //handle submit prevent default updateGuestslists and update guests list
 
-//handle submit prevent default updateGuestslists and update guests list
+  //guesNameInput
+  return (
+    <>
+      <label>Name:</label>
+      <input type="text" value={name} onChange></input>
+      {/* // title
+    //input name
+    // value of name
+    // on change setName
 
-//guesNameInput
-// title
-//input name
-// value of name
-// on change setName
+    //const displayMessage */}
+      {/* <input type="text" value={message} OnChange></input> */}
+      {/* // if user, display {user} : 'text to sign. // form onSubmit */}
+      <form>
+        <label> Write me a note</label>
 
-//const displayMessage
-// if user, display {user} : 'text to sign.
-// form onSubmit
-// label
-// <textarea> for value-guestEntry
-// onChange setGuestEntry
+        {/* // <textarea> for value-guestEntry */}
+        <textarea />
 
-//Sign button, type=submit
-// {user && button for signout}
-// Onclick setUser('') setName('')
-// form end
+        {/* // onChange setGuestEntry */}
+        <button>Send It!</button>
+
+        {/* // {user && button for signout}
+      // Onclick setUser('') setName('') */}
+        {/* //Sign button, type=submit */}
+        <button>Change Sender</button>
+      </form>
+    </>
+
+    // form end
+  );
+}
