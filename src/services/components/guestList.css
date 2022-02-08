@@ -1,0 +1,26 @@
+.dm {
+  display: flex;
+  width: fit-content;
+  border-radius: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.returns {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  background-color: beige;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+}

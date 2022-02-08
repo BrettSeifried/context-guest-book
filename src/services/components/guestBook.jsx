@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
+import './guestBook.css';
 
 export default function GuestBook() {
   const [name, setName] = useState('');
   const [messageEntry, setMessageEntry] = useState('');
   const { user, setUser } = useUser();
   const { message, setMessage } = useEntries();
+
   function updateMessageList() {
     if (!messageEntry) return;
     setUser(name);
@@ -37,7 +39,7 @@ export default function GuestBook() {
 
   const displayMessage = user ? `Thanks for the mssage ${user}` : 'Please send me a message';
   return (
-    <>
+    <div>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
         {user ? null : userNameInput}
@@ -66,6 +68,6 @@ export default function GuestBook() {
           )}
         </div>
       </form>
-    </>
+    </div>
   );
 }
