@@ -1,5 +1,5 @@
 import { useEntries } from '../../context/EntryContext';
-import Entry from './Entry';
+import Entry from './Function';
 import './guestList.css';
 
 export default function MessageList() {
