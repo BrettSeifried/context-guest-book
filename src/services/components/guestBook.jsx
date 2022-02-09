@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
+import { useGithubData } from '../../hooks/githubData';
 import { useHover } from '../../hooks/hover';
 import './guestBook.css';
 
@@ -11,16 +12,20 @@ export default function GuestBook() {
   const { user, setUser } = useUser();
   const { message, setMessage } = useEntries();
   const [hoverRef, isHovered] = useHover();
+  const [loading, setLoading] = useState(false);
+  const { info } = useGithubData({});
 
   function updateMessageList() {
     if (!messageEntry) return;
     setUser(name);
     setMessage([...message, { name, message: messageEntry }]);
     setMessageEntry('');
+    setLoading(true);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
     updateMessageList();
+    setLoading(false);
   };
 
   const userNameInput = (
@@ -38,6 +43,8 @@ export default function GuestBook() {
       </div>
     </div>
   );
+
+  if (loading) return <p>loading...</p>;
 
   const displayMessage = user ? `Thanks for the message ${user}` : 'Please send me a message';
   return (
