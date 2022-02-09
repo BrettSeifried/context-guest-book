@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
-import { useGithubData } from '../../hooks/githubData';
+// import { useGithubData } from '../../hooks/githubData';
 import { useHover } from '../../hooks/hover';
+import { fetchGithub } from '../route';
 import './guestBook.css';
 
 export default function GuestBook() {
@@ -13,7 +14,7 @@ export default function GuestBook() {
   const { message, setMessage } = useEntries();
   const [hoverRef, isHovered] = useHover();
   const [loading, setLoading] = useState(false);
-  const { info } = useGithubData({});
+  // const [ghLogin, setGhLogin] = useState({});
 
   function updateMessageList() {
     if (!messageEntry) return;
@@ -22,9 +23,12 @@ export default function GuestBook() {
     setMessageEntry('');
     setLoading(true);
   }
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     updateMessageList();
+    // const temp = await fetchGithub(name);
+    // setGhLogin(temp);
     setLoading(false);
   };
 
