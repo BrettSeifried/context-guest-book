@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
-import { EntryProvider } from '../context/EntryContext';
+import Home from './Home';
+import { EntryProvider } from '../../context/EntryContext';
 
 test('should render title of page', async () => {
   render(
     <EntryProvider>
-      <App />
+      <Home />
     </EntryProvider>
   );
   const title = screen.getByText(/Please send me a message/i);
