@@ -10,7 +10,7 @@ export default function MessageList() {
       <ul className="dm">
         {message.map((entry) => {
           return (
-            <li key={`${entry.name}&${entry.message}`}>
+            <li key={`${entry.name}-${entry.message}`}>
               <Entry entry={entry} />
             </li>
           );

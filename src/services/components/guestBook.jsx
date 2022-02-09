@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
+import { useHover } from '../../hooks/hover';
 import './guestBook.css';
 
 export default function GuestBook() {
@@ -9,6 +10,7 @@ export default function GuestBook() {
   const [messageEntry, setMessageEntry] = useState('');
   const { user, setUser } = useUser();
   const { message, setMessage } = useEntries();
+  const [hoverRef, isHovered] = useHover();
 
   function updateMessageList() {
     if (!messageEntry) return;
@@ -54,7 +56,10 @@ export default function GuestBook() {
         </div>
 
         <div>
-          <button type="submit">Send It!</button>
+          <div ref={hoverRef}>
+            <button type="submit">Send It! {isHovered ? '📧' : '💌'}</button>
+          </div>
+
           {user && (
             <button
               type="button"
@@ -63,7 +68,7 @@ export default function GuestBook() {
                 setName('');
               }}
             >
-              Are you {user}?
+              <div>Are you {user} ❓</div>
             </button>
           )}
         </div>
