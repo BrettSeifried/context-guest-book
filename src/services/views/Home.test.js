@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { EntryProvider } from './context/EntryContext';
+import { EntryProvider } from '../context/EntryContext';
 
 test('should render title of page', async () => {
   render(
