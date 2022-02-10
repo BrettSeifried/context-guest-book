@@ -10,21 +10,17 @@ export default function GuestBook() {
   const { user, setUser } = useUser();
   const { message, setMessage } = useEntries();
   const [hoverRef, isHovered] = useHover();
-  const [loading, setLoading] = useState(false);
-  // const [ghLogin, setGhLogin] = useState({});
 
   function updateMessageList() {
     if (!messageEntry) return;
     setUser(name);
     setMessage([...message, { name, message: messageEntry }]);
     setMessageEntry('');
-    setLoading(true);
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     updateMessageList();
-    setLoading(false);
   };
 
   const userNameInput = (
@@ -42,8 +38,6 @@ export default function GuestBook() {
       </div>
     </div>
   );
-
-  if (loading) return <p>loading...</p>;
 
   const displayMessage = user ? `Thanks for the message ${user}` : 'Enter your gitHub name';
   return (

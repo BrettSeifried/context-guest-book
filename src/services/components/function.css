@@ -4,7 +4,21 @@ img {
   max-width: auto;
 }
 
+p {
+  font-size: small;
+}
+
 .profile_header {
   display: flex;
+  flex-direction: row;
+  border: 0px;
+  line-height: 0px;
+}
+
+.profile_title {
+  display: flex;
   flex-direction: column;
+  align-items: left;
+  margin-top: 0px;
+  padding: 0px;
 }
