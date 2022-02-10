@@ -3,6 +3,7 @@ form {
   flex-direction: column;
   margin: auto;
   align-items: center;
+  filter: drop-shadow(5px 5px 4px #3c3c3d);
 }
 
 label {

@@ -2,6 +2,8 @@ img {
   border-radius: 100%;
   max-height: 50px;
   max-width: auto;
+  border: 2px black solid;
+  filter: drop-shadow(5px 5px 4px #3c3c3d);
 }
 
 p {
