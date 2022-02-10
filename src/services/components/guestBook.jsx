@@ -1,10 +1,7 @@
-//imports
 import React, { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
-// import { useGithubData } from '../../hooks/githubData';
 import { useHover } from '../../hooks/hover';
-import { fetchGithub } from '../route';
 import './guestBook.css';
 
 export default function GuestBook() {
@@ -27,21 +24,19 @@ export default function GuestBook() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     updateMessageList();
-    // const temp = await fetchGithub(name);
-    // setGhLogin(temp);
     setLoading(false);
   };
 
   const userNameInput = (
     <div>
       <div>
-        <label>Name:</label>
+        <label>github.com/</label>
       </div>
       <div>
         <input
           type="text"
           value={name}
-          placeholder="Your Name"
+          placeholder="github user name"
           onChange={(e) => setName(e.target.value)}
         ></input>
       </div>
@@ -50,7 +45,7 @@ export default function GuestBook() {
 
   if (loading) return <p>loading...</p>;
 
-  const displayMessage = user ? `Thanks for the message ${user}` : 'Please send me a message';
+  const displayMessage = user ? `Thanks for the message ${user}` : 'Enter your gitHub name';
   return (
     <div>
       <h1>{displayMessage}</h1>

@@ -8,10 +8,10 @@ test('should render title of page', async () => {
       <Home />
     </EntryProvider>
   );
-  const title = screen.getByText(/Please send me a message/i);
+  const title = screen.getByText(/Enter your gitHub name/i);
   expect(title).toBeInTheDocument();
 
-  const inputName = screen.getByPlaceholderText(/Your Name/i);
+  const inputName = screen.getByPlaceholderText(/github user name/i);
   expect(inputName).toBeInTheDocument();
 
   const button = screen.getByRole('button', {
