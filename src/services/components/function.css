@@ -6,10 +6,6 @@ img {
   filter: drop-shadow(5px 5px 4px #3c3c3d);
 }
 
-p {
-  font-size: small;
-}
-
 .profile_header {
   display: flex;
   flex-direction: row;
