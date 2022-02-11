@@ -1,7 +1,14 @@
-# Plan
+# Messaging system.
+
+    * a system that pulls Github info and images and displays a message on screen.
+    * Use context to prevent Prop-Drilling
+    * Use Custom hooks to clean up code.
+    * Ethereum price for funsies.
+
+## Plan
 
 [x] Route pages so they load
 [x] have guest form show up
-[] build out form inputs
-[] create context
-[] build out message inputs
+[x] build out form inputs
+[x] create context
+[x] build out message inputs
