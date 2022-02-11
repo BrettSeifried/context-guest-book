@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchGithub } from '../services/route';
+import { fetchGithub } from '../services/apiData/route';
 
 export default function useGithubData(name) {
   const [userName, setUserName] = useState('');

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
 import { useHover } from '../../hooks/hover';
+import { fetchEth } from '../apiData/ethPrice';
 import './guestBook.css';
 
 export default function GuestBook() {
@@ -10,6 +11,7 @@ export default function GuestBook() {
   const { user, setUser } = useUser();
   const { message, setMessage } = useEntries();
   const [hoverRef, isHovered] = useHover();
+  const [eth, setEth] = useState();
 
   function updateMessageList() {
     if (!messageEntry) return;
@@ -22,6 +24,14 @@ export default function GuestBook() {
     event.preventDefault();
     updateMessageList();
   };
+
+  useEffect(() => {
+    async function getEth() {
+      const price = await fetchEth();
+      setEth(price.ethereum.usd);
+    }
+    getEth();
+  }, []);
 
   const userNameInput = (
     <div>
@@ -42,6 +52,7 @@ export default function GuestBook() {
   const displayMessage = user ? `Thanks for the message ${user}` : 'Enter your gitHub name';
   return (
     <div>
+      <h1>Price of Ethereum ${eth}</h1>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
         {user ? null : userNameInput}
