@@ -12,15 +12,15 @@ export default function Login() {
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: '/' } };
-  const { setUser } = useUser();
+  const { user, setUser } = useUser();
+  // const { setName } = useName();
 
   const handleLogin = (e) => {
-    setUser('brettseifried');
     e.preventDefault();
     const loginSucessful = auth.login(formState.email, formState.password);
+    setUser(formState.email);
     !loginSucessful ? setError('Incorrect Login') : history.push(from);
   };
-
   return (
     <>
       <div>

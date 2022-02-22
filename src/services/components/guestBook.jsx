@@ -32,7 +32,7 @@ export default function GuestBook() {
     }
     getEth();
   }, []);
-
+  console.log('user', user);
   const userNameInput = (
     <div>
       <div>
@@ -42,7 +42,7 @@ export default function GuestBook() {
         <input
           type="text"
           value={name}
-          placeholder="github user name"
+          placeholder={user}
           onChange={(e) => setName(e.target.value)}
         ></input>
       </div>

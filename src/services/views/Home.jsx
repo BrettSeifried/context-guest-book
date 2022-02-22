@@ -5,9 +5,9 @@ import MessageList from '../components/guestList';
 
 export default function Home() {
   return (
-    <UserProvider>
+    <>
       <GuestBook />
       <MessageList />
-    </UserProvider>
+    </>
   );
 }
