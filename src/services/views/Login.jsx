@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
 
@@ -8,11 +10,15 @@ export default function Login() {
   const auth = useAuth();
   const [error, setError] = useState(null);
   const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: '/' } };
+  const { setUser } = useUser();
 
   const handleLogin = (e) => {
+    setUser('brettseifried');
     e.preventDefault();
     const loginSucessful = auth.login(formState.email, formState.password);
-    !loginSucessful ? setError('Incorrect Login') : history.push('/');
+    !loginSucessful ? setError('Incorrect Login') : history.push(from);
   };
 
   return (
@@ -44,7 +50,7 @@ export default function Login() {
         </div>
         <button type="submit">Log in</button>
       </form>
-      {/* {error} */}
+      {error}
     </>
   );
 }
