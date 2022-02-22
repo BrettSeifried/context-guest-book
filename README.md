@@ -15,6 +15,6 @@
 
 # Auth portion
 
-[] Components/Views for login, and message page in App.js
+[x] Components/Views for login, and message page in App.js
 [] Private Route sends to /login
 [] / renders messages hwen logged in.
