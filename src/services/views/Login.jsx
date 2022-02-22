@@ -12,8 +12,7 @@ export default function Login() {
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: '/' } };
-  const { user, setUser } = useUser();
-  // const { setName } = useName();
+  const { setUser } = useUser();
 
   const handleLogin = (e) => {
     e.preventDefault();

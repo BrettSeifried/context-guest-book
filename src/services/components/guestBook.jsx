@@ -15,7 +15,7 @@ export default function GuestBook() {
 
   function updateMessageList() {
     if (!messageEntry) return;
-    setUser(name);
+    // setUser(name);
     setMessage([...message, { name, message: messageEntry }]);
     setMessageEntry('');
   }
@@ -32,30 +32,30 @@ export default function GuestBook() {
     }
     getEth();
   }, []);
-  console.log('user', user);
-  const userNameInput = (
-    <div>
-      <div>
-        <label>github.com/</label>
-      </div>
-      <div>
-        <input
-          type="text"
-          value={name}
-          placeholder={user}
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-      </div>
-    </div>
-  );
 
-  const displayMessage = user ? `Thanks for the message ${user}` : 'Enter your gitHub name';
+  // const userNameInput = (
+  //   <div>
+  //     <div>
+  //       <label>github.com/</label>
+  //     </div>
+  //     <div>
+  //       <input
+  //         type="text"
+  //         value={name}
+  //         placeholder={user}
+  //         onChange={(e) => setName(e.target.value)}
+  //       ></input>
+  //     </div>
+  //   </div>
+  // );
+
+  const displayMessage = `Thanks for the message ${user}`;
   return (
     <div>
       <h1>Price of Ethereum ${eth}</h1>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
-        {user ? null : userNameInput}
+        {/* {user ? null : userNameInput} */}
         <div>
           <label> Write me a note:</label>
           <textarea
