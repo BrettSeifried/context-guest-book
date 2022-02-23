@@ -1,10 +1,10 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 // import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import { EntryProvider } from './context/EntryContext';
 
-test('Name and message should show up', async () => {
+test.skip('Name and message should show up', async () => {
   render(
     // <MemoryRouter>
     <EntryProvider>

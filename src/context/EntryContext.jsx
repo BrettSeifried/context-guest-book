@@ -21,7 +21,4 @@ const useEntries = () => {
   return context;
 };
 
-// retrun context
-
-// export { EntryProvider, useEntries}
 export { EntryProvider, useEntries };

@@ -33,29 +33,12 @@ export default function GuestBook() {
     getEth();
   }, []);
 
-  // const userNameInput = (
-  //   <div>
-  //     <div>
-  //       <label>github.com/</label>
-  //     </div>
-  //     <div>
-  //       <input
-  //         type="text"
-  //         value={name}
-  //         placeholder={user}
-  //         onChange={(e) => setName(e.target.value)}
-  //       ></input>
-  //     </div>
-  //   </div>
-  // );
-
   const displayMessage = `Thanks for the message ${user}`;
   return (
     <div>
       <h1>Price of Ethereum ${eth}</h1>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
-        {/* {user ? null : userNameInput} */}
         <div>
           <label> Write me a note:</label>
           <textarea
