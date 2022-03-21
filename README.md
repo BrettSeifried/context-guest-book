@@ -1,9 +1,11 @@
-# Messaging system.
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"><img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+# Messaging system
 
-    * a system that pulls Github info and images and displays a message on screen.
-    * Use context to prevent Prop-Drilling
-    * Use Custom hooks to clean up code.
-    * Ethereum price for funsies.
+A messaging site built fully in React. Goals were to:
+  - use context to prevent Prop-Drilling
+  - use customHooks to clean up the code
+  - Use GitHub API to display picture, gitHub name, and gitHub Repos
+  - Showed Ethereum price on screen from an API for funsies.
 
 ## Plan
 
@@ -12,3 +14,6 @@
 [x] build out form inputs
 [x] create context
 [x] build out message inputs
+
+
+
